@@ -19,9 +19,9 @@ public:
 	friend ostream& operator<<(ostream& out, const Client& client);
 	bool operator==(const Client& other)const;
 
-	char** const getHobbies() const;
-	const int getCount() const;
-	const String getID() const;
+	char** const getHobbies() const {return _hobby; }
+	const int getCount() const {return _amountOfHobbies;}
+	const String getID() const { return _id; }
 
 
 

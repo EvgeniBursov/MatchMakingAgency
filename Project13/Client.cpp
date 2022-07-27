@@ -1,6 +1,5 @@
-#include<iostream>
 #include "Client.h"
-using namespace std;
+
 char** CreateHobbyListCopy(char** hobby, int amountOfHobbies)
 {
 	if (!hobby)
@@ -8,13 +7,15 @@ char** CreateHobbyListCopy(char** hobby, int amountOfHobbies)
 		return NULL;
 	}
 	char** hobbies = new char* [amountOfHobbies];
-	//copying hobby arr
-	for (int i = 0; i < amountOfHobbies; i++)
+	
+	for (int i = 0; i < amountOfHobbies; i++)//copying hobby arr
 	{
-		hobbies[i] = hobby[i] ? _strdup(hobby[i]) : NULL;
+		hobbies[i] = hobby[i];
+		//hobbies[i] = hobby[i] ? _strdup(hobby[i]) : NULL;
 	}
 	return hobbies;
 }
+
 Client::Client(const String& id, const String& name, char sex, int age, char** hobby, int amountOfHobbies)
 	:_id(id),
 	_name(name),
@@ -36,9 +37,14 @@ Client::Client(const Client& other)
 //distructor
 Client::~Client()
 {
-	if (NULL != _hobby) {
-		delete[] _hobby;
+	for (int i = 0; i < _amountOfHobbies; i++)
+	{
+		delete _hobby[i];
 	}
+	delete[]_hobby;
+	//if (NULL != _hobby) {
+	//	delete[] _hobby;
+	//}
 }
 
 //print operator
@@ -76,17 +82,4 @@ bool Client:: operator==(const Client& other)const
 	}
 	return false;
 
-}
-
-char** const Client::getHobbies() const
-{
-	return _hobby;
-}
-const int Client::getCount() const
-{
-	return _amountOfHobbies;
-}
-const String Client::getID() const
-{
-	return _id;
 }
