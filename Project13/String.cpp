@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+
 #include <iostream>
 #include "String.h"
 using namespace std;
@@ -11,10 +11,9 @@ char* StringCopy(const char* string)
 		return NULL;
 	}
 
-	int size = strlen(string) + 1;
-	char* new_str = new char[size];
-
+	char* new_str = new char[strlen(string)+1];
 	strcpy(new_str, string);
+	delete[]string;
 	return new_str;
 }
 
@@ -27,13 +26,13 @@ String::String(const String& other) : _string(StringCopy(other._string))
 {}
 
 //distructor
-String::~String()
-{
-	if (NULL != _string)
-	{
-		delete[] _string;
-	}
-}
+//String::~String()
+//{
+//	if (NULL != _string)
+//	{
+//		delete[] _string;
+//	}
+//}
 
 // assignment operator
 String& String::operator=(const String& other)
