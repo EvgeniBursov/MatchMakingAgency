@@ -21,6 +21,8 @@ public:
 	char** const getHobbies() const;
 	const int getCount() const;
 	const String getID() const;
+	const char getSex() const { return this->_sex; }
+
 
 
 

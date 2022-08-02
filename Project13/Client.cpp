@@ -57,7 +57,7 @@ ostream& operator<<(ostream& out, const Client& client)
 
 bool Client:: operator==(const Client& other)const
 {
-	if (other._sex == this->_sex) {
+	if (other.getSex() == this->getSex()) {
 		return false;
 	}
 	int agediff = (other._age - _age);
