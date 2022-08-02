@@ -1,8 +1,7 @@
+#pragma once
 #include "VIPClient.h"
-#include <iostream>
 #include "MatchmakingAgency.h"
 
-using namespace std;
 class Menu
 {
 public:
@@ -20,3 +19,4 @@ private:
 	Menu(const Menu&);
 	Menu& operator=(const Menu&);
 };
+

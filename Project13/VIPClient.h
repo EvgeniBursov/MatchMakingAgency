@@ -1,7 +1,6 @@
-#include<iostream>
+#pragma once
 #include "Client.h"
 
-using namespace std;
 
 class VIPClient : public Client
 {
@@ -22,3 +21,4 @@ public:
 private:
 	unsigned _inCommonDemand;
 };
+

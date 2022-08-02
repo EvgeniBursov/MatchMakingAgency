@@ -1,5 +1,6 @@
 #include "Client.h"
 
+
 char** CreateHobbyListCopy(char** hobby, int amountOfHobbies)
 {
 	if (!hobby)
@@ -7,15 +8,13 @@ char** CreateHobbyListCopy(char** hobby, int amountOfHobbies)
 		return NULL;
 	}
 	char** hobbies = new char* [amountOfHobbies];
-	
-	for (int i = 0; i < amountOfHobbies; i++)//copying hobby arr
+	//copying hobby arr
+	for (int i = 0; i < amountOfHobbies; i++)
 	{
-		hobbies[i] = hobby[i];
-		//hobbies[i] = hobby[i] ? _strdup(hobby[i]) : NULL;
+		hobbies[i] = hobby[i] ? _strdup(hobby[i]) : NULL;
 	}
 	return hobbies;
 }
-
 Client::Client(const String& id, const String& name, char sex, int age, char** hobby, int amountOfHobbies)
 	:_id(id),
 	_name(name),
@@ -37,14 +36,9 @@ Client::Client(const Client& other)
 //distructor
 Client::~Client()
 {
-	for (int i = 0; i < _amountOfHobbies; i++)
-	{
-		delete _hobby[i];
+	if (NULL != _hobby) {
+		delete[] _hobby;
 	}
-	delete[]_hobby;
-	//if (NULL != _hobby) {
-	//	delete[] _hobby;
-	//}
 }
 
 //print operator
@@ -63,7 +57,7 @@ ostream& operator<<(ostream& out, const Client& client)
 
 bool Client:: operator==(const Client& other)const
 {
-	if (other._sex == _sex) {
+	if (other._sex == this->_sex) {
 		return false;
 	}
 	int agediff = (other._age - _age);
@@ -82,4 +76,17 @@ bool Client:: operator==(const Client& other)const
 	}
 	return false;
 
+}
+
+char** const Client::getHobbies() const
+{
+	return _hobby;
+}
+const int Client::getCount() const
+{
+	return _amountOfHobbies;
+}
+const String Client::getID() const
+{
+	return _id;
 }

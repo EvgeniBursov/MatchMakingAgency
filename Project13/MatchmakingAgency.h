@@ -1,6 +1,5 @@
-#include<iostream>
+#pragma once
 #include"Client.h"
-using namespace std;
 class MatchmakingAgency
 {
 	friend ostream& operator<<(ostream& out, const MatchmakingAgency& agency);

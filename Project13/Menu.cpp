@@ -1,7 +1,6 @@
+
 #include "Menu.h"
 #include "String.h"
-using namespace std;
-
 void PrintOptions() {
 	cout << "====================================================" << endl;
 	cout << "1) Add new client to the database" << endl;

@@ -1,9 +1,11 @@
+#pragma once
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 using namespace std;
 
 class String
 {
+	friend ostream& operator<<(ostream& out, const String& string);
 
 public:
 	//constructor
@@ -11,14 +13,14 @@ public:
 	//copy constructor
 	String(const String& other);
 	//distructor
-	~String() { delete[]_string; }
+	~String();
 	//operators:
 	String& operator=(const String& other);
 	bool operator==(const String& other)const;
-	friend ostream& operator<<(ostream& out, const String& string);
 
 
 
 private:
 	char* _string;
 };
+

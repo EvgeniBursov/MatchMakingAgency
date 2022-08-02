@@ -1,6 +1,4 @@
-#include<iostream>
 #include "MatchmakingAgency.h"
-using namespace std;
 //default constructor
 MatchmakingAgency::MatchmakingAgency()
 	:_clients(NULL),

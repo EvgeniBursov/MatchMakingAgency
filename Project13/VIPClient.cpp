@@ -1,7 +1,5 @@
-#include<iostream>
-#include "VIPClient.h"
-using namespace std;
 
+#include "VIPClient.h"
 //constructor
 VIPClient::VIPClient(const String& id, const String& name, char sex, int age, char** hobby, int count, unsigned inCommonDemand)
 	: Client(id, name, sex, age, hobby, count),
